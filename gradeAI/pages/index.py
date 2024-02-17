@@ -13,6 +13,16 @@ def index() -> rx.Component:
     Returns:
         The UI for the home page.
     """
-    with open("README.md", encoding="utf-8") as readme:
-        content = readme.read()
-    return rx.markdown(content, component_map=styles.markdown_style)
+    return rx.container(
+        rx.grid(
+                rx.foreach(
+                    rx.chakra.link(
+                        rx.Var.range(12),
+                        lambda i: rx.card(f"Card {i}", height="33vh"),
+                    ),
+                ),
+                columns="3",
+                spacing="4",
+                width="100%",
+        ),
+    )
