@@ -49,6 +49,7 @@ def index() -> rx.Component:
 
     """
     return rx.box(
+        rx.text('Courses', marginLeft="0.1em", marginTop="1.7em", font_weight=500, font_size="1.4em", margin_bottom="0.5em"),
         rx.grid(
             rx.card(
                 rx.chakra.link(
@@ -78,7 +79,7 @@ def index() -> rx.Component:
                     rx.text("5 assignments, 1 Exam", marginLeft="0.2em", marginTop="-0.2em", font_family="Work Sans"),
                     rx.chakra.divider(marginTop="0.5em", width="45em", marginLeft="-10em"),
                     rx.image(src="wavyred.png", width="35em", height="12em", margin_top="-2em"),
-                    href="/dashboard", 
+                    href="/assignment", 
                     text_decoration="none"
                 ),
                 as_child=True,

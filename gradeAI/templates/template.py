@@ -16,6 +16,40 @@ default_meta = [
     },
 ]
 
+def logo() -> rx.Component:
+    return rx.image(src="gradeAILogo.png", width="6.5em", height="2em", margin_left="12em"),
+
+def navbar():
+    return rx.hstack(
+        rx.hstack(
+            rx.text("Home", margin_left="3em", font_size="1.3em", font_weight=500, ),
+            rx.text("Grades", margin_left="3em", font_size="1.3em", font_weight=500, ),
+            rx.text("Account", margin_left="3em", font_size="1.3em", font_weight=500, ),
+        ),
+        rx.hstack(
+            rx.image(src="gradeAILogo.png", width="6.5em", height="2em", margin_left="14em"),
+        ),
+        rx.spacer(),
+        
+        # rx.chakra.menu(
+        #     rx.chakra.menu_button("Menu"),
+        #     rx.chakra.menu_list(
+        #         rx.chakra.menu_item("Item 1"),
+        #         rx.chakra.menu_divider(),
+        #         rx.chakra.menu_item("Item 2"),
+        #         rx.chakra.menu_item("Item 3"),
+        #     ),
+        # ),
+        position="fixed",
+        top="0px",
+        background_color="#F8F6F5",
+        padding="1em",
+        height="4em",
+        width="100%",
+        z_index="0",
+        margin_top="0.9em",
+    )
+
 
 def menu_button() -> rx.Component:
     """The menu button on the top right of the page.
@@ -113,14 +147,16 @@ def template(
         def templated_page():
             return rx.chakra.hstack(
                 # sidebar(),
+                navbar(),
                 rx.chakra.box(
+                    # logo(),
                     rx.chakra.box(
                         page_content(),
                         **styles.template_content_style,
                     ),
                     **styles.template_page_style,
                 ),
-                menu_button(),
+                # menu_button(),
                 align_items="flex-start",
                 transition="left 0.5s, width 0.5s",
                 position="relative",
