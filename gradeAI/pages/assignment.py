@@ -156,7 +156,10 @@ def assignment() -> rx.Component:
             rx.hstack(
                 rx.hstack(
                     rx.text("Homework 5"),
-                    rx.chakra.image(src="https://www.svgrepo.com/show/510970/external-link.svg", width="1em", height="1em", margin_top="0.28em")
+                    rx.chakra.link(
+                        rx.chakra.image(src="https://www.svgrepo.com/show/510970/external-link.svg", width="1em", height="1em", margin_top="0.28em"),
+                        href="/grading"
+                    )
                 ),
                 rx.spacer(),
                 rx.hstack(
