@@ -115,7 +115,7 @@ def process_word_from_gcs_and_extract_text_images(bucket_name, source_blob_name)
 RECEIVER_ADDRESS = "agent1qwez6cez0d7vycves9cm6w9dw9ecgjy3xwmrdalgrpc3cgg7pya05358m0e"
 
 
-@trigger_agent.on_interval(period=15.0)
+@trigger_agent.on_interval(period=60)
 async def data_pipelining(ctx: Context):
     ctx.logger.info(f'Sending Data')
 
