@@ -16,6 +16,7 @@ class Message(Model):
     text_data_pdf: str
     image_data_pdf: List[str]
     text_data_word: str
+    rubric_data_text: str
     # image_data_word: List[bytes]
 
 
@@ -119,7 +120,7 @@ async def data_pipelining(ctx: Context):
     ctx.logger.info(f'Sending Data')
 
     bucket_name = "test_data_bucket_ocr"
-    source_blob_name = "pdf/Report.pdf"
+    source_blob_name = r"pdf/61 hw2.pdf"
     pdf_text, pdf_images_list = read_pdf_from_gcs(bucket_name, source_blob_name)
 
 
@@ -127,8 +128,26 @@ async def data_pipelining(ctx: Context):
     source_blob_name = "word/Report.docx"
     word_text, word_images_list = process_word_from_gcs_and_extract_text_images(bucket_name, source_blob_name)
 
-    await ctx.send(RECEIVER_ADDRESS, Message(message="HW #1 Grading Word + PDF", text_data_pdf=pdf_text,
-                                             image_data_pdf=pdf_images_list, text_data_word=word_text))
+    bucket_name = "test_data_bucket_ocr"
+    source_blob_name = r"rubrics/Homework2-solutions (1).pdf"
+    rubrics_text, rubrics_pdf_images_list = read_pdf_from_gcs(bucket_name, source_blob_name)
+
+    await ctx.send(RECEIVER_ADDRESS, Message(message="HW #2 Grading Word + PDF", text_data_pdf=pdf_text,
+                                             image_data_pdf=pdf_images_list, text_data_word=word_text, rubric_data_text=rubrics_text))
+
+class Data(Model):
+    value: float
+    timestamp: str
+    confidence: float
+    details: str
+    notes: str
+
+class DataAll(Model):
+    grades: List[Data]
+    
+@trigger_agent.on_message(model=DataAll)
+async def handle_data(ctx: Context, sender: str, data: DataAll):
+    ctx.logger.info(f"Got response from AI model agent: {data}")
 
 
 if __name__ == "__main__":
