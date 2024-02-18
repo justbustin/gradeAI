@@ -3,6 +3,7 @@ from gradeAI.templates import template
 import os
 from pathlib import Path
 from typing import List
+from google.cloud import storage
 
 
 import reflex as rx
@@ -26,15 +27,30 @@ class UploadState(rx.State):
             if p.is_file()
         ]
 
+    # async def handle_upload(self, files: List[rx.UploadFile]):
+    #     """Handle the file upload."""
+    #     # Iterate through the uploaded files.
+    #     for file in files:
+    #         upload_data = await file.read()
+            # outfile = Path(rx.get_upload_dir()) / file.filename.lstrip("/")
+            # outfile.parent.mkdir(parents=True, exist_ok=True)
+            # outfile.write_bytes(upload_data)
+            # print(22, outfile);
     async def handle_upload(self, files: List[rx.UploadFile]):
-        """Handle the file upload."""
-        # Iterate through the uploaded files.
+        """Handle the file upload asynchronously."""
+        storage_client = storage.Client.from_service_account_json('amazing-city-414621-61f39de69c52.json')
+        bucket = storage_client.bucket("test_data_bucket_ocr")
+
         for file in files:
-            upload_data = await file.read()
-            outfile = Path(rx.get_upload_dir()) / file.filename.lstrip("/")
-            outfile.parent.mkdir(parents=True, exist_ok=True)
-            outfile.write_bytes(upload_data)
-            print(22, outfile);
+            upload_data = await file.read()  # Asynchronously read file content
+
+            # Synchronously upload the file to GCS
+            blob = bucket.blob("rubrics/" + file.filename)  # Assuming file.filename is your desired blob name
+            blob.upload_from_string(upload_data)
+
+            print(f"File {file.filename} uploaded.")
+
+        print("All files uploaded.")
 
     def on_upload_progress(self, prog: dict):
         print("Got progress", prog)
