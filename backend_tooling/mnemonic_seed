@@ -1,0 +1,4 @@
+MNEMONIC_SEED = b'\x8b\xa9\x88pO7\x96\xca\x13\x03\x0fSK\x16H<\xd6y+K\xbf\ty\x16\xc7\xeca\x84\x94\x182\x15*\xdb\x04O\x97\xfaO\xf2\xa7\x99v\xba\xf3\xe8B\xc9>1\x87\x8e\xe46d\xd5\x11RH\xad\xe3si\xf9'
+AGENT_ADDRESS = "agent1qvrynkgrn2fkqthehxjw67l698hduzxuede8sfpspfwj60zl0l9lq34fw09"
+AGENT_MAILBOX_KEY = "aad91229-0694-4cef-934f-8b77757d384e"
+RECEIVER_ADDRESS = "agent1qwez6cez0d7vycves9cm6w9dw9ecgjy3xwmrdalgrpc3cgg7pya05358m0e"
