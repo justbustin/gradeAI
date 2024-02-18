@@ -27,7 +27,7 @@ def navbar():
             rx.text("Account", margin_left="3em", font_size="1.3em", font_weight=500, ),
         ),
         rx.hstack(
-            rx.image(src="gradeAILogo.png", width="6.5em", height="2em", margin_left="14em"),
+            rx.image(src="https://i.ibb.co/nj8t8Yn/grade-AILogo.png", width="6.5em", height="2em", margin_left="14em"),
         ),
         rx.spacer(),
         
