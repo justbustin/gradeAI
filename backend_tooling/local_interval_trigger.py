@@ -7,6 +7,7 @@ import os
 from google.cloud import storage
 import tempfile
 import base64
+import json
 
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = r"amazing-city-414621-61f39de69c52.json"
 
@@ -148,6 +149,33 @@ class DataAll(Model):
 @trigger_agent.on_message(model=DataAll)
 async def handle_data(ctx: Context, sender: str, data: DataAll):
     ctx.logger.info(f"Got response from AI model agent: {data}")
+
+    grades = data  # Assuming 'data' is already in the correct format
+
+    # Convert the list to a JSON string
+    grades_json = json.dumps(grades, indent=4)
+
+    # Filename for the JSON data
+    filename = 'grades_hw1.json'
+
+    # Write the JSON string to a file
+    with open(filename, 'w') as file:
+        file.write(grades_json)
+
+    try:
+        storage_client = storage.Client.from_service_account_json('amazing-city-414621-61f39de69c52.json')
+        bucket = storage_client.bucket("test_data_bucket_ocr")
+
+        blob_name = f"rubrics/{filename}"  # Corrected blob name
+        blob = bucket.blob(blob_name)
+        blob.upload_from_filename(filename)  # Changed to upload from filename
+
+        # Delete the file after upload
+        os.remove(filename)
+
+        ctx.logger.info(f"{filename} has been uploaded to GCP and deleted locally.")  # Using logger instead of print
+    except Exception as e:
+        ctx.logger.error(f"Failed to upload {filename} to GCP: {e}")
 
 
 if __name__ == "__main__":
