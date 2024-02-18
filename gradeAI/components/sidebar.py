@@ -22,7 +22,7 @@ def sidebar_header() -> rx.Component:
         rx.chakra.link(
             rx.chakra.center(
                 rx.chakra.image(
-                    src="/github.svg",
+                    src="/sideMenuIcon.svg",
                     height="3em",
                     padding="0.5em",
                 ),
