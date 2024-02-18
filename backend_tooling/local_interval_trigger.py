@@ -116,7 +116,7 @@ def process_word_from_gcs_and_extract_text_images(bucket_name, source_blob_name)
 RECEIVER_ADDRESS = "agent1qwez6cez0d7vycves9cm6w9dw9ecgjy3xwmrdalgrpc3cgg7pya05358m0e"
 
 
-@trigger_agent.on_interval(period=90)
+@trigger_agent.on_interval(period=60)
 async def data_pipelining(ctx: Context):
     ctx.logger.info(f'Sending Data')
 
@@ -145,15 +145,18 @@ class Data(Model):
 
 class DataAll(Model):
     grades: List[Data]
-    
+
 def data_to_dict(data):
     # Convert a single Data instance to dict
+    # print(type(data[1][0]))
+    # print(data[1][0])
+
     return {
-        "value": data[0],
-        "timestamp": str(data[1]),  # Convert datetime to string if necessary
-        "confidence": data[2],
-        "details": data[3],
-        "notes": data[4]
+        "value": data[1][0].value,
+        "timestamp": str(data[1][0].timestamp),  # Convert datetime to string if necessary
+        "confidence": data[1][0].confidence,
+        "details": data[1][0].details,
+        "notes": data[1][0].notes
     }
 
 def dataall_to_dict(data_all):
