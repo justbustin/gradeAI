@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "amazing-city-414621",
+  "private_key_id": "61f39de69c52f5797c82ab28d934d0b3bfa30f71",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCbQwC04mqYC0/7\njyxtdmQpRG/lJGu5XWPpmWP4TRp3nqpAKUdoYKTX3SeJmlp4LFC0NGE2eAMOU/dt\ng8ZrJe+QyAXYbHpps6390fd/gGV2cqQrJW/XPrqWOpmf/af8GPKxsSMupwtn6HON\nkfY/KHZaSEwMH7VPR5hUUJiJzASqlwdodBDbopXV6G6wK6Ryd9OPSoN7wMaQXMoZ\nhefYjajkh/V7zI0KUtClAOPcIRJAkBVhYmrat0qKsUqjWfIFiW3Ocfmc87WRG0aY\nFJkg1w9MoiQC2RycpcazMvwcB2OUJRVYzTkoAadnjWz0ycJz7RDhCJprFwNYG73/\n/tRmUFv3AgMBAAECggEAOjAayC/g9hmrQKKwalfIAwVQkEadjst24fnoUwsGg9U1\nhjVSO0aZEQOjyTjNdiNZnafR1RmWP5ztaqBL0SVXCuJD+o/xMsMxzqINyT2kCQe/\nCiKOL1Ollx7gK2tjtSHedwTlpBrbtfYStHiDGrl93akhwxtxFoTFDLhl6qLJDutU\nTSbuXci6vHfNvyID7bs848WxGeLdrsq4whwtviBmms8q0AqUBh2I+ntUl0iEcFr2\nTVqGW9YoJjn+rWqRFNOdo5ZpxmqK7YEmx71/o6ixzYSSGDV397eDEMdAsBn3g7zK\nmzB9kG1ppxA4cWajDsmMrs2Q0rRHmBoF9MT/FFCG/QKBgQDZfuf4MCM/49yg9g+m\nAevs1qZhb1OCa6A3RsqtBZTO65+Exh/qXt04p0PRZlI9GaO+M8mXWq5gvyrsH/nx\nmLCrMo/8avUOflgTXqggeQ0zzHy0ifkeAcGkQYoLmXZJGBbpVW6+UCI/zOmWJEKs\nbL4jjgU4hD5A+2AFV5feXmoBxQKBgQC2v5kj7J+VbcZiq3EUdeGYrNN23l0QLczd\nJmgJUVjj3IIXl6hkhY5g0Vw2TZXNR2gtdnRKv7/UIJAplPNWr35NCZUV8jAq9+RD\ndX932JRWL3GVVy68scZP2mk++s7aKyEh9ebaw+nI9WiN19lP5CADJrQG6beV46p0\nkAC8U7AuiwKBgQDDTp26FmghAFpoRG3q8gDNDjgceN7x1/noiW6JDuEBKz90+IFC\ncmuPa0yQJqUk7vhGXbTicHD0udYuccx98lJ7eY0o61ch67zlr/OkLW/4muFFMjz9\ngDBGcwAmyGka3EH+yFQJHGaVCkqcI/WnZoMb5HW1ubM5oUIpqe3bpsbkzQKBgD4f\n3iiHPSzoN4O9cmCZPkrPnceQCiUA3N7lOoLIY6Z6hMMObFFX0bH6GhXfxCgXuUOT\nPC9ZBhZPx5JLL3ntiMsZkdP3FAbXZILGQ8HzH2I5GKzDCYFeEeN9hT/CtWUXOlk4\nJfWCmkwVmSh3E0oEbBmGI7ch5qYO0hh0B7v92yvHAoGAL0UmSbsg39W7pD9YsyfJ\nhNS7ukt60FewYPoGy/4zLkosTJjweV8TjWm00zUX5xqnJJYncJOLPkU7xqPTXWJk\niUwDja/NU4bh9VirJCAB0gClHqSYsEu/WkphyJyvXdPQIBx2bJawIJ1sOQk5mPp1\nMnrqWUoqnElW38+C8clZtzA=\n-----END PRIVATE KEY-----\n",
+  "client_email": "full-access-role-account@amazing-city-414621.iam.gserviceaccount.com",
+  "client_id": "108293788888857726590",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/full-access-role-account%40amazing-city-414621.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
