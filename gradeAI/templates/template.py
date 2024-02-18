@@ -33,6 +33,18 @@ def navbar():
             )
         ),
         rx.spacer(),
+        rx.box(
+            rx.hstack(
+                rx.image(src="http://localhost:3000/glass.svg", width="3em", height="1.4em", margin_left="0.3em", margin_top="0.4em", margin_right="-0.5em"),
+                rx.text("Search classes...", color="#6F6D7B", margin_top="0.25em"),
+            ),
+            height="2.2em", 
+            color="#6F6D7B",
+            bg="#FEFEFD",
+            width="20em",
+            border_radius="28px",
+            margin_right="5em",
+        ),
         
         # rx.chakra.menu(
         #     rx.chakra.menu_button("Menu"),
