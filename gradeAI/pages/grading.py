@@ -5,34 +5,19 @@ from typing import List
 
 import reflex as rx
 
+
+
 class PDFViewer(rx.Component):
-    library = "react-pdf"
-    tag = "Document"
-    file: rx.Var[str]
+    """A component to render a PDF file in an iframe."""
 
-    def on_document_load_success(self, num_pages: int) -> None:
-        self.set_state(num_pages=num_pages)
-
-    def get_event_triggers(self) -> dict[str, any]:
-        return {
-            **super().get_event_triggers(),
-            "onLoadSuccess": self.on_document_load_success,
-        }
-
-pdf_viewer = PDFViewer.create
-
-class PDFViewerState(rx.State):
-    file: str = "https://jade-lindie-65.tiiny.site"
-    num_pages: int = 0
-    page_number: int = 1
+    # Assuming Reflex uses a similar approach to React for specifying attributes
+    def render(self):
+        return rx.html(
+            "<iframe src='http://localhost:3000/hw2.pdf' width='100%' height='500px' />"
+        )
 
 @template(route="/grading", title="Grading")
 def grading() -> rx.Component:
     return rx.vstack(
-        pdf_viewer(
-            file=PDFViewerState.file
-        ),
-        rx.text(
-            f"Page {PDFViewerState.page_number} of {PDFViewerState.num_pages}"
-        )
+        PDFViewer(),
     )
