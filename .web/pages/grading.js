@@ -78,7 +78,7 @@ export default function Component() {
   <Box sx={{"alignItems": "flex-start", "borderRadius": "0.375rem", "padding": "1em", "marginBottom": "2em"}}>
   <RadixThemesFlex align={`start`} css={{"width": "100%", "flexDirection": "column"}} gap={`2`}>
   <RadixThemesFlex align={`start`} css={{"flexDirection": "row"}} gap={`2`}>
-  <div css={{"width": "100em"}} dangerouslySetInnerHTML={{"__html": "<iframe src='http://localhost:3000/118.pdf' width='100%' height='500px' />"}}/>
+  <div css={{"width": "115em"}} dangerouslySetInnerHTML={{"__html": "<iframe src='http://localhost:3000/118.pdf' width='100%' height='500px' />"}}/>
   <RadixThemesFlex align={`start`} css={{"flexDirection": "column"}} gap={`2`}>
   <RadixThemesText as={`p`} css={{"fontWeight": 500, "fontSize": "1.4em"}}>
   {`Summary`}
@@ -86,18 +86,21 @@ export default function Component() {
   <RadixThemesText as={`p`}>
   {`If you don't like a test prompt, you can get a different (random) prompt with the button - or select a specific paragraph to type from the list below. To find out how fast you type, just start typing in the blank textbox on the right of the test prompt. You will see your progress, including errors on the left side as you type. In order to complete the test and save your score, you need to get 100% accuracy. You can fix errors as you go, or correct them at the end with the help of the spell checker.`}
 </RadixThemesText>
+  <RadixThemesBox css={{"height": "1.5em"}}/>
   <RadixThemesText as={`p`} css={{"fontWeight": 500, "fontSize": "1.4em"}}>
   {`Score (Out of 10)`}
 </RadixThemesText>
   <RadixThemesText as={`p`}>
   {`9.6`}
 </RadixThemesText>
+  <RadixThemesBox css={{"height": "1.5em"}}/>
   <RadixThemesText as={`p`} css={{"fontWeight": 500, "fontSize": "1.4em"}}>
   {`Confidence`}
 </RadixThemesText>
   <RadixThemesText as={`p`}>
   {`88.9`}
 </RadixThemesText>
+  <RadixThemesBox css={{"height": "1.5em"}}/>
   <RadixThemesText as={`p`} css={{"fontWeight": 500, "fontSize": "1.4em"}}>
   {`Detailed Notes`}
 </RadixThemesText>

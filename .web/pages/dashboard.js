@@ -16,27 +16,34 @@ import NextHead from "next/head"
 
 
 
-export function Indicator_fa52d064a76f0c023616eb8d257ae151 () {
-  const state__upload_state = useContext(StateContexts.state__upload_state)
+export function Reactdropzone_79f83b71b3de88ec5ddbca820d171814 () {
+  const [filesById, setFilesById] = useContext(UploadFilesContext);
+  const [addEvents, connectError] = useContext(EventLoopContext);
+  const ref_upload1 = useRef(null); refs['ref_upload1'] = ref_upload1;
 
+  const on_drop_43559631fc2268b22945d7e839a69ddc = useCallback(e => setFilesById(filesById => ({...filesById, upload1: e})), [addEvents, Event, filesById, setFilesById])
 
   return (
-    <RadixProgressIndicator className={`Indicator`} css={{"background-color": "var(--accent-9)", "width": "100%", "height": "100%", "transition": "transform 250ms linear", "&[dataState='loading']": {"transition": "transform 250ms linear"}, "transform": `translateX(calc(-100% + (${state__upload_state.upload_progress} / 100 * 100%)))`, "boxShadow": "inset 0 0 0 1px var(--gray-a5)"}} max={100} value={state__upload_state.upload_progress}/>
+    <ReactDropzone id={`upload1`} multiple={true} onDrop={on_drop_43559631fc2268b22945d7e839a69ddc} ref={ref_upload1}>
+  {({ getRootProps, getInputProps }) => (
+    <Box id={`upload1`} ref={ref_upload1} sx={{"border": "1px dotted black", "padding": "2em"}} {...getRootProps()}>
+    <Input type={`file`} {...getInputProps()}/>
+    <RadixThemesFlex align={`center`} css={{"flexDirection": "column"}} gap={`2`}>
+    <RadixThemesButton css={{"height": "70px", "width": "200px", "color": "rgb(107,99,246)", "background": "white", "border": "1px solid rgb(107,99,246)"}}>
+    {`Select File(s)`}
+  </RadixThemesButton>
+    <RadixThemesText as={`p`} css={{"height": "100px", "width": "200px"}}>
+    {`Drag and drop files here or click to select files`}
+  </RadixThemesText>
+    <Fragment_fd8e793a985531c20535c70e2e2570c8/>
+  </RadixThemesFlex>
+  </Box>
+  )}
+</ReactDropzone>
   )
 }
 
-export function Root_fc06f9bc527c38752e982326edaa8720 () {
-  const state__upload_state = useContext(StateContexts.state__upload_state)
-
-
-  return (
-    <RadixProgressRoot className={`Root`} css={{"position": "relative", "overflow": "hidden", "background": "var(--gray-a3)", "borderRadius": "99999px", "width": "100%", "height": "20px", "boxShadow": "inset 0 0 0 1px var(--gray-a5)"}} value={state__upload_state.upload_progress}>
-  <Indicator_fa52d064a76f0c023616eb8d257ae151/>
-</RadixProgressRoot>
-  )
-}
-
-export function Flex_08ea3af8a8466e976023d323fa1e12b9 () {
+export function Flex_7cdad1c1cf14dae6bff6d4161bd96f9e () {
   const state__upload_state = useContext(StateContexts.state__upload_state)
 
 
@@ -50,6 +57,30 @@ export function Flex_08ea3af8a8466e976023d323fa1e12b9 () {
 </RadixThemesLink>
 ))}
 </RadixThemesFlex>
+  )
+}
+
+export function Button_eb7c55b69d3c1daf3a34bd74fb29fee6 () {
+  const [filesById, setFilesById] = useContext(UploadFilesContext);
+  const [addEvents, connectError] = useContext(EventLoopContext);
+
+  const on_click_1fcd43bddb856c03391a3990fccdc039 = useCallback((_e) => addEvents([Event("state.upload_state.handle_upload", {files:filesById.upload1,upload_id:`upload1`,on_upload_progress:(__prog) => addEvents([Event("state.upload_state.on_upload_progress", {prog:__prog})], (__prog), {})}, "uploadFiles")], (_e), {}), [addEvents, Event, filesById, setFilesById])
+
+  return (
+    <RadixThemesButton onClick={on_click_1fcd43bddb856c03391a3990fccdc039}>
+  {`Upload`}
+</RadixThemesButton>
+  )
+}
+
+export function Root_fc06f9bc527c38752e982326edaa8720 () {
+  const state__upload_state = useContext(StateContexts.state__upload_state)
+
+
+  return (
+    <RadixProgressRoot className={`Root`} css={{"position": "relative", "overflow": "hidden", "background": "var(--gray-a3)", "borderRadius": "99999px", "width": "100%", "height": "20px", "boxShadow": "inset 0 0 0 1px var(--gray-a5)"}} value={state__upload_state.upload_progress}>
+  <Indicator_fa52d064a76f0c023616eb8d257ae151/>
+</RadixProgressRoot>
   )
 }
 
@@ -82,16 +113,35 @@ export function Fragment_1762bb90abdb81b879b2a22edbbe01a1 () {
   )
 }
 
-export function Button_eb7c55b69d3c1daf3a34bd74fb29fee6 () {
-  const [filesById, setFilesById] = useContext(UploadFilesContext);
+export function Fragment_bcd6ed8a0abaa80b83a3bd79eb3a391b () {
+  const state__upload_state = useContext(StateContexts.state__upload_state)
   const [addEvents, connectError] = useContext(EventLoopContext);
 
-  const on_click_1fcd43bddb856c03391a3990fccdc039 = useCallback((_e) => addEvents([Event("state.upload_state.handle_upload", {files:filesById.upload1,upload_id:`upload1`,on_upload_progress:(__prog) => addEvents([Event("state.upload_state.on_upload_progress", {prog:__prog})], (__prog), {})}, "uploadFiles")], (_e), {}), [addEvents, Event, filesById, setFilesById])
 
   return (
-    <RadixThemesButton onClick={on_click_1fcd43bddb856c03391a3990fccdc039}>
-  {`Upload`}
-</RadixThemesButton>
+    <Fragment>
+  {isTrue(state__upload_state.is_uploading) ? (
+  <Fragment>
+  <RadixThemesText as={`p`}>
+  {`Uploading... `}
+  <RadixThemesLink onClick={(_e) => addEvents([Event("state.upload_state.cancel_upload", {upload_id:`upload1`})], (_e), {})}>
+  {`cancel`}
+</RadixThemesLink>
+</RadixThemesText>
+</Fragment>
+) : (
+  <Fragment/>
+)}
+</Fragment>
+  )
+}
+
+export function Indicator_fa52d064a76f0c023616eb8d257ae151 () {
+  const state__upload_state = useContext(StateContexts.state__upload_state)
+
+
+  return (
+    <RadixProgressIndicator className={`Indicator`} css={{"background-color": "var(--accent-9)", "width": "100%", "height": "100%", "transition": "transform 250ms linear", "&[dataState='loading']": {"transition": "transform 250ms linear"}, "transform": `translateX(calc(-100% + (${state__upload_state.upload_progress} / 100 * 100%)))`, "boxShadow": "inset 0 0 0 1px var(--gray-a5)"}} max={100} value={state__upload_state.upload_progress}/>
   )
 }
 
@@ -115,56 +165,6 @@ export function Fragment_fd8e793a985531c20535c70e2e2570c8 () {
   {`No files selected`}
 </RadixThemesText>
 </Fragment>
-)}
-</Fragment>
-  )
-}
-
-export function Reactdropzone_79f83b71b3de88ec5ddbca820d171814 () {
-  const [filesById, setFilesById] = useContext(UploadFilesContext);
-  const ref_upload1 = useRef(null); refs['ref_upload1'] = ref_upload1;
-  const [addEvents, connectError] = useContext(EventLoopContext);
-
-  const on_drop_43559631fc2268b22945d7e839a69ddc = useCallback(e => setFilesById(filesById => ({...filesById, upload1: e})), [addEvents, Event, filesById, setFilesById])
-
-  return (
-    <ReactDropzone id={`upload1`} multiple={true} onDrop={on_drop_43559631fc2268b22945d7e839a69ddc} ref={ref_upload1}>
-  {({ getRootProps, getInputProps }) => (
-    <Box id={`upload1`} ref={ref_upload1} sx={{"border": "1px dotted black", "padding": "2em"}} {...getRootProps()}>
-    <Input type={`file`} {...getInputProps()}/>
-    <RadixThemesFlex align={`center`} css={{"flexDirection": "column"}} gap={`2`}>
-    <RadixThemesButton css={{"height": "70px", "width": "200px", "color": "rgb(107,99,246)", "background": "white", "border": "1px solid rgb(107,99,246)"}}>
-    {`Select File(s)`}
-  </RadixThemesButton>
-    <RadixThemesText as={`p`} css={{"height": "100px", "width": "200px"}}>
-    {`Drag and drop files here or click to select files`}
-  </RadixThemesText>
-    <Fragment_fd8e793a985531c20535c70e2e2570c8/>
-  </RadixThemesFlex>
-  </Box>
-  )}
-</ReactDropzone>
-  )
-}
-
-export function Fragment_bcd6ed8a0abaa80b83a3bd79eb3a391b () {
-  const state__upload_state = useContext(StateContexts.state__upload_state)
-  const [addEvents, connectError] = useContext(EventLoopContext);
-
-
-  return (
-    <Fragment>
-  {isTrue(state__upload_state.is_uploading) ? (
-  <Fragment>
-  <RadixThemesText as={`p`}>
-  {`Uploading... `}
-  <RadixThemesLink onClick={(_e) => addEvents([Event("state.upload_state.cancel_upload", {upload_id:`upload1`})], (_e), {})}>
-  {`cancel`}
-</RadixThemesLink>
-</RadixThemesText>
-</Fragment>
-) : (
-  <Fragment/>
 )}
 </Fragment>
   )
@@ -215,7 +215,7 @@ export default function Component() {
 </RadixThemesHeading>
   <Fragment_bcd6ed8a0abaa80b83a3bd79eb3a391b/>
   <Root_fc06f9bc527c38752e982326edaa8720/>
-  <Flex_08ea3af8a8466e976023d323fa1e12b9/>
+  <Flex_7cdad1c1cf14dae6bff6d4161bd96f9e/>
 </RadixThemesFlex>
 </Box>
 </Box>
