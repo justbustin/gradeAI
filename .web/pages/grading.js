@@ -4,7 +4,7 @@
 import { Fragment, useContext } from "react"
 import { EventLoopContext } from "/utils/context"
 import { Event, getBackendURL, isTrue } from "/utils/state"
-import { Box as RadixThemesBox, Dialog as RadixThemesDialog, Flex as RadixThemesFlex, Text as RadixThemesText } from "@radix-ui/themes"
+import { Box as RadixThemesBox, Button as RadixThemesButton, Dialog as RadixThemesDialog, Flex as RadixThemesFlex, Separator as RadixThemesSeparator, Text as RadixThemesText, TextArea as RadixThemesTextArea } from "@radix-ui/themes"
 import env from "/env.json"
 import { Box, HStack, Link } from "@chakra-ui/react"
 import NextLink from "next/link"
@@ -77,15 +77,19 @@ export default function Component() {
   <Box sx={{"paddingTop": "5em", "paddingInlineStart": ["auto", "2em"], "paddingInlineEnd": ["auto", "2em"], "flex": "1", "backgroundColor": "#F8F6F5"}}>
   <Box sx={{"alignItems": "flex-start", "borderRadius": "0.375rem", "padding": "1em", "marginBottom": "2em"}}>
   <RadixThemesFlex align={`start`} css={{"width": "100%", "flexDirection": "column"}} gap={`2`}>
+  <RadixThemesText as={`p`} css={{"fontWeight": 500, "fontSize": "1.2em", "marginTop": "1em"}}>
+  {`Student: Keshi Lee`}
+</RadixThemesText>
   <RadixThemesFlex align={`start`} css={{"flexDirection": "row"}} gap={`2`}>
-  <div css={{"width": "115em"}} dangerouslySetInnerHTML={{"__html": "<iframe src='http://localhost:3000/118.pdf' width='100%' height='500px' />"}}/>
+  <div css={{"width": "80em"}} dangerouslySetInnerHTML={{"__html": "<iframe src='http://localhost:3000/hw2.pdf' width='100%' height='673em' />"}}/>
   <RadixThemesFlex align={`start`} css={{"flexDirection": "column"}} gap={`2`}>
   <RadixThemesText as={`p`} css={{"fontWeight": 500, "fontSize": "1.4em"}}>
   {`Summary`}
 </RadixThemesText>
   <RadixThemesText as={`p`}>
-  {`If you don't like a test prompt, you can get a different (random) prompt with the button - or select a specific paragraph to type from the list below. To find out how fast you type, just start typing in the blank textbox on the right of the test prompt. You will see your progress, including errors on the left side as you type. In order to complete the test and save your score, you need to get 100% accuracy. You can fix errors as you go, or correct them at the end with the help of the spell checker.`}
+  {`Both final answers match and the remark about a set is slightly confusing. Confidence is high because the thought process was correct despite the notation mistakes.`}
 </RadixThemesText>
+  <RadixThemesTextArea css={{"width": "100%"}} placeholder={`Additional Notes`}/>
   <RadixThemesBox css={{"height": "1.5em"}}/>
   <RadixThemesText as={`p`} css={{"fontWeight": 500, "fontSize": "1.4em"}}>
   {`Score (Out of 10)`}
@@ -93,6 +97,7 @@ export default function Component() {
   <RadixThemesText as={`p`}>
   {`9.6`}
 </RadixThemesText>
+  <RadixThemesTextArea css={{"width": "100%"}} placeholder={`Additional Notes`}/>
   <RadixThemesBox css={{"height": "1.5em"}}/>
   <RadixThemesText as={`p`} css={{"fontWeight": 500, "fontSize": "1.4em"}}>
   {`Confidence`}
@@ -105,10 +110,15 @@ export default function Component() {
   {`Detailed Notes`}
 </RadixThemesText>
   <RadixThemesText as={`p`}>
-  {`BLAH BLAH BLAH BLAH`}
+  {`The homework solution is correct with a slight misunderstanding of the concept of divisibility in the algebraic context. Both the provided solution and the attempted solution try to prove the same theorem that if a divides b and a divides c, then a divides (b + c). The student correctly uses there exist integers x and y such that ax= b and ay = c and then successfully derives that a divides (b+c), although there are minor notation mistakes.`}
 </RadixThemesText>
+  <RadixThemesTextArea css={{"width": "100%"}} placeholder={`Additional Notes`}/>
 </RadixThemesFlex>
 </RadixThemesFlex>
+  <RadixThemesSeparator size={`4`}/>
+  <RadixThemesButton css={{"marginLeft": "42em"}} size={`3`}>
+  {`Submit`}
+</RadixThemesButton>
 </RadixThemesFlex>
 </Box>
 </Box>

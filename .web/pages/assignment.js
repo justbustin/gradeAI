@@ -15,47 +15,9 @@ import NextHead from "next/head"
 
 
 
-export function Button_88db37ed33a48ba7cb3352faa1e8865d () {
-  const [filesById, setFilesById] = useContext(UploadFilesContext);
-  const [addEvents, connectError] = useContext(EventLoopContext);
-
-  const on_click_6dba807bd9673b3402de52775eda06b5 = useCallback((_e) => addEvents([Event("state.upload_state_modal.handle_upload", {files:filesById.upload1,upload_id:`upload1`,on_upload_progress:(__prog) => addEvents([Event("state.upload_state_modal.on_upload_progress", {prog:__prog})], (__prog), {})}, "uploadFiles")], (_e), {}), [addEvents, Event, filesById, setFilesById])
-
-  return (
-    <RadixThemesButton css={{"background": "#3A937D"}} onClick={on_click_6dba807bd9673b3402de52775eda06b5}>
-  {`Create`}
-</RadixThemesButton>
-  )
-}
-
-export function Fragment_fd8e793a985531c20535c70e2e2570c8 () {
-  const [filesById, setFilesById] = useContext(UploadFilesContext);
-
-
-  return (
-    <Fragment>
-  {isTrue((filesById.upload1 ? filesById.upload1.map((f) => (f.path || f.name)) : [])) ? (
-  <Fragment>
-  {(filesById.upload1 ? filesById.upload1.map((f) => (f.path || f.name)) : []).map((children, props) => (
-  <RadixThemesText as={`p`} key={props}>
-  {children}
-</RadixThemesText>
-))}
-</Fragment>
-) : (
-  <Fragment>
-  <RadixThemesText as={`p`}>
-  {`No files selected`}
-</RadixThemesText>
-</Fragment>
-)}
-</Fragment>
-  )
-}
-
 export function Reactdropzone_53f0a0eaf1ec79570104b29a8b73ffd5 () {
-  const [filesById, setFilesById] = useContext(UploadFilesContext);
   const [addEvents, connectError] = useContext(EventLoopContext);
+  const [filesById, setFilesById] = useContext(UploadFilesContext);
   const ref_upload1 = useRef(null); refs['ref_upload1'] = ref_upload1;
 
   const on_drop_43559631fc2268b22945d7e839a69ddc = useCallback(e => setFilesById(filesById => ({...filesById, upload1: e})), [addEvents, Event, filesById, setFilesById])
@@ -108,6 +70,44 @@ export function Fragment_1762bb90abdb81b879b2a22edbbe01a1 () {
   <Fragment/>
 )}
 </Fragment>
+  )
+}
+
+export function Fragment_fd8e793a985531c20535c70e2e2570c8 () {
+  const [filesById, setFilesById] = useContext(UploadFilesContext);
+
+
+  return (
+    <Fragment>
+  {isTrue((filesById.upload1 ? filesById.upload1.map((f) => (f.path || f.name)) : [])) ? (
+  <Fragment>
+  {(filesById.upload1 ? filesById.upload1.map((f) => (f.path || f.name)) : []).map((children, props) => (
+  <RadixThemesText as={`p`} key={props}>
+  {children}
+</RadixThemesText>
+))}
+</Fragment>
+) : (
+  <Fragment>
+  <RadixThemesText as={`p`}>
+  {`No files selected`}
+</RadixThemesText>
+</Fragment>
+)}
+</Fragment>
+  )
+}
+
+export function Button_88db37ed33a48ba7cb3352faa1e8865d () {
+  const [addEvents, connectError] = useContext(EventLoopContext);
+  const [filesById, setFilesById] = useContext(UploadFilesContext);
+
+  const on_click_6dba807bd9673b3402de52775eda06b5 = useCallback((_e) => addEvents([Event("state.upload_state_modal.handle_upload", {files:filesById.upload1,upload_id:`upload1`,on_upload_progress:(__prog) => addEvents([Event("state.upload_state_modal.on_upload_progress", {prog:__prog})], (__prog), {})}, "uploadFiles")], (_e), {}), [addEvents, Event, filesById, setFilesById])
+
+  return (
+    <RadixThemesButton css={{"background": "#3A937D"}} onClick={on_click_6dba807bd9673b3402de52775eda06b5}>
+  {`Create`}
+</RadixThemesButton>
   )
 }
 
