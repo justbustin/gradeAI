@@ -116,7 +116,7 @@ def process_word_from_gcs_and_extract_text_images(bucket_name, source_blob_name)
 RECEIVER_ADDRESS = "agent1qwez6cez0d7vycves9cm6w9dw9ecgjy3xwmrdalgrpc3cgg7pya05358m0e"
 
 
-@trigger_agent.on_interval(period=60)
+@trigger_agent.on_interval(period=90)
 async def data_pipelining(ctx: Context):
     ctx.logger.info(f'Sending Data')
 
@@ -146,13 +146,28 @@ class Data(Model):
 class DataAll(Model):
     grades: List[Data]
     
+def data_to_dict(data):
+    # Convert a single Data instance to dict
+    return {
+        "value": data[0],
+        "timestamp": str(data[1]),  # Convert datetime to string if necessary
+        "confidence": data[2],
+        "details": data[3],
+        "notes": data[4]
+    }
+
+def dataall_to_dict(data_all):
+    # Assuming DataAll contains a list of Data objects
+    return [data_to_dict(data) for data in data_all]
+
 @trigger_agent.on_message(model=DataAll)
 async def handle_data(ctx: Context, sender: str, data: DataAll):
     ctx.logger.info(f"Got response from AI model agent: {data}")
 
-    grades = data  # Assuming 'data' is already in the correct format
+    # Convert DataAll to a list of dicts
+    grades = dataall_to_dict(data)  # Adjust this line based on the actual structure of DataAll
 
-    # Convert the list to a JSON string
+    # Now you can serialize it to JSON
     grades_json = json.dumps(grades, indent=4)
 
     # Filename for the JSON data
