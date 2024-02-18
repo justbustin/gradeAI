@@ -166,7 +166,7 @@ async def handle_data(ctx: Context, sender: str, data: DataAll):
         storage_client = storage.Client.from_service_account_json('amazing-city-414621-61f39de69c52.json')
         bucket = storage_client.bucket("test_data_bucket_ocr")
 
-        blob_name = f"rubrics/{filename}"  # Corrected blob name
+        blob_name = f"score/hw1/{filename}"  # Corrected blob name
         blob = bucket.blob(blob_name)
         blob.upload_from_filename(filename)  # Changed to upload from filename
 
